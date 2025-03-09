@@ -36,7 +36,7 @@ Ready to take charge of your finances? Let’s get Finance Master up and running
      );
 
 
-2. Edit config/db_connect.php with your MySQL creds: 
+2. **Edit config/db_connect.php with your MySQL creds:**
 <?php
 class Database {
     private static $instance = null;
@@ -56,7 +56,7 @@ class Database {
 }
 ?>
 
-3.Kickstart Your Server
+3.**Kickstart Your Server**
 4.Launch your web server with Laragon, XAMPP, or your preferred setup (PHP and MySQL required).
 5.Point it to the finance-master/public directory and let the magic ignite!
 
