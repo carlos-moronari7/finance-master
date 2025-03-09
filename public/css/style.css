@@ -1,0 +1,265 @@
+:root {
+    /* Dark Theme */
+    --bg-dark: #1a1c22; /* Deeper, more neutral dark gray */
+    --bg-darker: #121317; /* Slightly darker for sidebar */
+    --accent-blue: #3b82f6; /* Softer, more corporate blue */
+    --accent-green: #22c55e; /* Muted green for income */
+    --accent-red: #ef4444; /* Softer red for expenses */
+    --text-light: #e5e7eb; /* Softer off-white for text */
+    --text-muted: #9ca3af; /* Gray for secondary text */
+    --card-bg: rgba(255, 255, 255, 0.03); /* Subtler card background */
+    --border: rgba(255, 255, 255, 0.08); /* Subtler border */
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body.light-theme {
+    background: #f9fafb; /* Clean, light gray */
+    color: #1f2937; /* Dark gray for text */
+}
+
+body.light-theme .sidebar {
+    background: #ffffff;
+    color: #1f2937;
+}
+
+body.light-theme .nav-link { color: #1f2937; }
+body.light-theme .nav-link:hover, body.light-theme .nav-link.active { background: #f3f4f6; color: var(--accent-blue); }
+body.light-theme .main-content { background: #f9fafb; }
+body.light-theme .card { background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+body.light-theme .modern-input { background: #ffffff; border-color: #d1d5db; color: #1f2937; }
+body.light-theme .modern-table th { background: #f3f4f6; color: #4b5563; }
+body.light-theme .modern-table tr:hover { background: #f9fafb; }
+
+/* Sidebar */
+.sidebar {
+    width: 70px;
+    height: 100vh;
+    background: var(--bg-darker);
+    padding: 20px 0;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 240px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 24px;
+    color: var(--accent-blue);
+    width: 24px;
+}
+
+.sidebar-title {
+    font-size: 16px; /* Smaller, more refined */
+    font-weight: 600;
+    margin-left: 15px;
+    color: var(--text-light);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .sidebar-title {
+    opacity: 1;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease; /* Smoother transition */
+}
+
+.nav-link i {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-text {
+    margin-left: 15px;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.sidebar:hover .nav-text {
+    opacity: 1;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: rgba(255, 255, 255, 0.05); /* Subtler hover */
+    color: var(--accent-blue);
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-blue);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 70px;
+    padding: 40px;
+    background: var(--bg-dark);
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+.page-title {
+    font-size: 24px; /* Slightly smaller for professionalism */
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 30px;
+    letter-spacing: 0.5px; /* Tighter spacing */
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px; /* Tighter radius */
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.05); /* Subtler hover effect */
+}
+
+.card-title {
+    font-size: 14px; /* Smaller for a cleaner look */
+    font-weight: 500; /* Lighter weight */
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-neon {
+    background: var(--accent-blue);
+    border: none;
+    color: #fff;
+    padding: 6px 12px; /* Smaller padding for a sharper look */
+    border-radius: 4px; /* Tighter radius */
+    font-weight: 500;
+    font-size: 14px; /* Smaller font */
+    transition: all 0.2s ease;
+}
+
+.btn-neon:hover {
+    background: #2563eb; /* Darker blue */
+}
+
+.btn-danger {
+    background: var(--accent-red);
+}
+
+.btn-danger:hover {
+    background: #dc2626; /* Darker red */
+}
+
+.btn-warning {
+    background: #f59e0b; /* More professional amber */
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background: #d97706; /* Darker amber */
+}
+
+/* Inputs */
+.modern-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    border-radius: 4px;
+    font-size: 14px; /* Smaller font */
+    transition: all 0.2s ease;
+}
+
+.modern-input:focus {
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Table */
+.modern-table {
+    color: var(--text-light);
+}
+
+.modern-table th {
+    background: rgba(255, 255, 255, 0.03);
+    border: none;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 10px;
+    font-size: 14px;
+}
+
+.modern-table td {
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.modern-table tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.income { color: var(--accent-green); }
+.expense { color: var(--accent-red); }
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Alerts */
+.alert {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    border-radius: 4px;
+}
+
+.alert-success { border-color: var(--accent-green); }
+.alert-danger { border-color: var(--accent-red); }
